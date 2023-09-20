@@ -11,9 +11,18 @@ import Image from "next/image";
  * @param {string} props.containerStyles - The container styles for the button.
  * @param {Function} props.handleClick - The click event handler for the button.
  * @param {string} props.btnType - The type of the button (optional, defaults to "button").
+ * @param {string} props.textStyles - The text styles for the button title.
+ * @param {string} props.rightIcon - The URL of the right icon image.
  * @returns {JSX.Element} - The rendered CustomButton component.
  */
-const CustomButton = ({ title, containerStyles, handleClick, btnType }: CustomButtonProps) => {
+const CustomButton = ({
+   title,
+   containerStyles,
+   handleClick,
+   btnType,
+   textStyles,
+   rightIcon,
+}: CustomButtonProps) => {
    return (
       <button
          disabled={false}
@@ -21,8 +30,14 @@ const CustomButton = ({ title, containerStyles, handleClick, btnType }: CustomBu
          className={`custom-btn ${containerStyles}`}
          onClick={handleClick}
       >
-         <span className={`flex-1 `}>{title}</span>
+         <span className={`flex-1 ${textStyles}`}>{title}</span>
+         {rightIcon && (
+            <div className="relative w-5 h-6">
+               <Image src={rightIcon} alt="right icon" fill className="object-contain" />
+            </div>
+         )}
       </button>
    );
 };
+
 export default CustomButton;

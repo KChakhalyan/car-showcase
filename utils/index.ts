@@ -10,12 +10,9 @@ export async function fetchCars() {
    };
 
    // Send a GET request to the API endpoint
-   const response = await fetch(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=m4&make=bmw",
-      {
-         headers: headers,
-      }
-   );
+   const response = await fetch("https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=carrera", {
+      headers: headers,
+   });
 
    // Parse the response as JSON
    const result = await response.json();
