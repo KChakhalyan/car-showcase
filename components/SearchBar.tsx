@@ -25,10 +25,10 @@ const SearchBar = () => {
       if (manufacturer === "" && model === "") {
          return alert("Please enter a manufacturer and model");
       }
-      updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+      updatedSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
    };
 
-   const updateSearchParams = (model: string, manufacturer: string) => {
+   const updatedSearchParams = (model: string, manufacturer: string) => {
       const searchParams = new URLSearchParams(window.location.search);
 
       if (model) {

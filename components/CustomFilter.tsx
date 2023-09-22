@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Listbox, Transition } from "@headlessui/react";
 
 import { CustomFilterProps } from "@/types";
-import { updateSearchParams } from "@/utils";
+import { updatedSearchParams } from "@/utils";
 
 export default function CustomFilter({ title, options }: CustomFilterProps) {
    const router = useRouter();
@@ -14,7 +14,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
 
    // update the URL search parameters and navigate to the new URL
    const handleUpdateParams = (e: { title: string; value: string }) => {
-      const newPathName = updateSearchParams(title, e.value.toLowerCase());
+      const newPathName = updatedSearchParams(title, e.value.toLowerCase());
 
       router.push(newPathName);
    };
